@@ -11,7 +11,7 @@
 
 class PopUpNews extends CodonModule
 {
-	/**
+	/***
 	* Call it in your templates like this (without the *)
 	* <?php
 	* $allnews = new PopUpNews();
@@ -19,8 +19,8 @@ class PopUpNews extends CodonModule
 	* ?>
 	***
 	** This will call it statically
-	*** As a post to <?php PopUpNews::PopUpNewsList(5); ?> // Non Statically
-	**/
+	** As a post to <?php PopUpNews::PopUpNewsList(5); ?> // Non Statically
+	***/
 		
 	public function __construct() {
 		//
