@@ -27,15 +27,15 @@ class PopUpNews extends CodonModule
     }
 
     public function popupnewsitem($id) {
-		$id = intval($id);
-		if(!is_numeric($id)){ header('Location: '.url('/')); }
+	$id = intval($id);
+	if(!is_numeric($id)){ header('Location: '.url('/')); }
 
-		$result = PopUpNewsData::popupnewsitem($id);
-		$this->title = $result->subject; // Sets the title in the browser to the news's subject
-		
-		$this->set('item', $result);
-		$this->show('popupnews/popupnews_item');
-	} 
+	$result = PopUpNewsData::popupnewsitem($id);
+	$this->title = $result->subject; // Sets the title in the browser to the news's subject
+
+	$this->set('item', $result);
+	$this->show('popupnews/popupnews_item');
+    } 
 
     public function PopUpNewsList($howmany = 5) {
         $howmany = intval($howmany);
