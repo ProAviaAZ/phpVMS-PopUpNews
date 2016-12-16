@@ -11,22 +11,35 @@
 
 class PopUpNews extends CodonModule
 {
+	/**
+	* Call it in your templates like this (without the *)
+	* <?php
+	* $allnews = new PopUpNews();
+	* $allnews = $allnews->PopUpNewsList(5);
+	* ?>
+	***
+	** This will call it statically
+	*** As a post to <?php PopUpNews::PopUpNewsList(5); ?> // Non Statically
+	**/
+		
+	public function __construct() {
+		//
+	}
+
     public function popupnewsitem($id) {
+		$id = intval($id);
+		if(!is_numeric($id)){ header('Location: '.url('/')); }
 
-                $id = intval($id);
-                if(!is_numeric($id)){header('Location: '.url('/'));}
-        
-                $result = PopUpNewsData::popupnewsitem($id);
-                $this->title = $result->subject;
-                Template::Set('item', $result);
-                Template::Show('popupnews/popupnews_item');
-        }
-    
+		$result = PopUpNewsData::popupnewsitem($id);
+		$this->title = $result->subject; // Sets the title in the browser to the news's subject
+		
+		$this->set('item', $result);
+		$this->show('popupnews/popupnews_item');
+	} 
 
-    public function PopUpNewsList($howmany = 5)
-    {
+    public function PopUpNewsList($howmany = 5) {
         $howmany = intval($howmany);
-        if(!is_numeric($howmany)){exit;}
+        if(!is_numeric($howmany)){ exit;}
         
         $res = PopUpNewsData::get_news_list($howmany);
 
