@@ -22,9 +22,9 @@ class PopUpNews extends CodonModule
 	** As a post to <?php PopUpNews::PopUpNewsList(5); ?> // Non Statically
 	***/
 		
-	public function __construct() {
-		//
-	}
+    public function __construct() {
+	//
+    }
 
     public function popupnewsitem($id) {
 		$id = intval($id);
