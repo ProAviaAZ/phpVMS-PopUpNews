@@ -33,6 +33,9 @@ Install Manually:
 
 Where you want to call the PopUpNews List in your site use ->
 
-<?php PopUpNews::PopUpNewsList(5); ?>
+<?php
+$allnews = new PopUpNews();
+$allnews->PopUpNewsList(5);
+?>
 
 The number "5" can be changed to however many news posts you want to show in your list.
